@@ -9,7 +9,7 @@ const app = new Koa();
 app.use(cors());
 app.use(koaBody({json: true}));
 
-app.use(async (ctx, next) => {
+app.use(async (ctx) => {
     ctx.body = 'server is working';
 });
 

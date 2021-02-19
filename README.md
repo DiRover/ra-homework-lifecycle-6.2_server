@@ -1,2 +1,2 @@
 HEROCU
-[PAGE Task 8.3 SERVER WEBSOCKET](https://ws-8-3-server.herokuapp.com/)
+[PAGE Task 6.2 SERVER](https://lifecycle-server.herokuapp.com/)
