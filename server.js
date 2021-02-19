@@ -8,15 +8,15 @@ const app = new Koa();
 
 app.use(cors());
 app.use(koaBody({json: true}));
-/*
+
 app.use(async (ctx, next) => {
     ctx.body = 'server is working';
 });
-*/
+
 const notes = [{id: 9999, content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam luctus sagittis magna, sit amet rhoncus nunc commodo eget. Aenean vitae ipsum quis lacus volutpat interdum in vel est.'},
  {id: 99999, content: 'Nulla placerat purus in erat pellentesque, ornare pretium nunc auctor. Ut molestie volutpat nibh, vel congue ante commodo porttitor.'}];
 let nextId = 1;
-
+console.log(notes)
 const router = new Router();
 
 router.get('/notes', async (ctx, next) => {
@@ -29,7 +29,7 @@ router.get('/notes', async (ctx, next) => {
 router.post('/notes', async(ctx, next) => {
     console.log('post');
     console.log(ctx.request.body);
-    notes.push({content: ctx.request.body, id: nextId++});
+    notes.push({...ctx.request.body, id: nextId++});
     console.log(notes)
     ctx.response.status = 204;
 });
